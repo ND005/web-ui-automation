@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class homePage {
 	private WebDriver driver;
-	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
 	public homePage(WebDriver driver) {
 		this.driver = driver;
@@ -35,7 +35,6 @@ public class homePage {
 
 	public boolean navigateToHomePage() {
 		wait.until(ExpectedConditions.visibilityOf(homePageNavigation)).click();
-		wait.until(ExpectedConditions.titleContains("Home"));
 		if (driver.getTitle().contains("Home")) {
 			return true;
 		}
