@@ -33,6 +33,20 @@ public class homePage {
 	@FindBy(xpath = "//h2[text()='Nimmala Dinesh']")
 	public WebElement TitleVerification;
 
+	public boolean navigateToPages(String pageName) {
+		switch(pageName) {
+		case "Home":
+			return navigateToHomePage();
+		case "Projects":
+			return navigateToProjectsPage();
+		case "Form":
+			return navigateToFormPage();
+		case "About":
+			return navigateToAboutPage();
+		}
+		return false;
+	}
+	
 	public boolean navigateToHomePage() {
 		wait.until(ExpectedConditions.visibilityOf(homePageNavigation)).click();
 		if (driver.getTitle().contains("Home")) {
@@ -40,10 +54,9 @@ public class homePage {
 		}
 		return false;
 	}
-
+	
 	public boolean navigateToProjectsPage() {
 		wait.until(ExpectedConditions.visibilityOf(homeProjectNavigation)).click();
-		wait.until(ExpectedConditions.titleContains("Projects"));
 		if (driver.getTitle().contains("Projects")) {
 			return true;
 		}
@@ -52,7 +65,6 @@ public class homePage {
 
 	public boolean navigateToFormPage() {
 		wait.until(ExpectedConditions.visibilityOf(homeFormNavigation)).click();
-		wait.until(ExpectedConditions.titleContains("Form"));
 		if (driver.getTitle().contains("Form")) {
 			return true;
 		}
@@ -61,7 +73,6 @@ public class homePage {
 
 	public boolean navigateToAboutPage() {
 		wait.until(ExpectedConditions.visibilityOf(homeAboutNavigation)).click();
-		wait.until(ExpectedConditions.titleContains("About"));
 		if (driver.getTitle().contains("About")) {
 			return true;
 		}

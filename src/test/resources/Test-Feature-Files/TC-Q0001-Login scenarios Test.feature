@@ -1,7 +1,7 @@
 #Author: your.email@your.domain.com
 #Keywords Summary :
 #Background: List of steps run before each of the scenarios
-Feature: TC-Q001 Web login scenarios
+Feature: TC-Q0001 Web login scenarios
 
   @Positive
   Scenario Outline: TS-01 Login to web-ui and verify the ui

@@ -15,7 +15,6 @@ public class Test_login_ui {
 	@Given("^Login with valid (.*) and (.*)$")
 	public void loginWithValid_UserIDPassword(String username, String password) {
 		Assert.assertTrue(loginpage.loginCredentials(username, password));
-
 	}
 
 	@Given("^Login with invalid (.*) and (.*)$")
