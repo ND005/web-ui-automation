@@ -17,7 +17,6 @@ Feature: TC-Q001 Web login scenarios
   @Negitive
   Scenario Outline: TS-02 Login to web-ui and verify the ui
     Given Login with invalid <User-ID> and <Password>
-    When User try to login with invalid credentials
     Then Verify the error popup
 
     Examples: 
