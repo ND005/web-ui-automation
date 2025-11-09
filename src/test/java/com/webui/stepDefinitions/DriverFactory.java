@@ -9,13 +9,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverFactory {
 
+	// 1. Private Constructor to prevent instantiation (Utility Class)
 	public enum BrowserType {
 		CHROME, FIREFOX, EDGE, SAFARI
-	}
-
-	// 1. Private Constructor to prevent instantiation (Utility Class)
-	private DriverFactory() {
-		// Private constructor
 	}
 
 	// 2. Main method to create the WebDriver instance

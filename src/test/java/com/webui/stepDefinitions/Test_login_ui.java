@@ -1,23 +1,25 @@
 package com.webui.stepDefinitions;
+
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import com.webui.baseURL.webuiBaseUrls;
+import com.webui.pageFactory.loginPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
 public class Test_login_ui {
 	WebDriver driver = DriverManager.getDriver();
-	webuiBaseUrls baseUrls = new webuiBaseUrls();
-	
+	loginPage loginpage = new loginPage(driver);
+
 	@Given("^Login with valid (.*) and (.*)$")
-	public void login_with_valid_admin_and_password(String username, String password) {
-		System.out.println("Username: " + username);
-		System.out.println("Password: " + password);
+	public void loginWithValid_UserIDPassword(String username, String password) {
+		Assert.assertTrue(loginpage.loginCredentials(username, password));
+
 	}
 
 	@Given("^Login with invalid (.*) and (.*)$")
-	public void login_with_invalid_myname_and_password(String username, String password) {
-		System.out.println("Username: " + username);
-		System.out.println("Password: " + password);
+	public void loginWithInvalid_UserIDPassword(String username, String password) {
+		Assert.assertTrue(loginpage.loginCredentials(username, password));
+		Assert.assertTrue(loginpage.isErrorPopupDisplayed());
 	}
 
 	@When("User logged in with valid credentials")
