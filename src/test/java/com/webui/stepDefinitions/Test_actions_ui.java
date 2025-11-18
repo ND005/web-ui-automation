@@ -33,21 +33,16 @@ public class Test_actions_ui extends webuiCoreFunctions {
 	}
 
 	@Then("Fill the form with extended data")
-	public void fillTheFormWithExtendedData() throws Throwable {
+	public void fillTheFormWithExtendedData() {
 		HashMap<String, String> testData = Test_formData();
-		System.out.println(testData.get("Date of Birth"));
-		Assert.assertTrue(formpage.selectGender(testData.get("Gender"))
-				&& formpage.fillDOB(testData.get("Date of Birth")) && formpage.fillEmail(testData.get("Email")));
-		Thread.sleep(10000);
-		// Gender - Male
-		// Date of Birth - 05/01/1998
-		// Email - testing@test.com
-		// Mobile Number - 9876543210
-		// College Name - ABC University
-		// Degree - B.Tech
-		// Type Stream - Computer Science
+		Assert.assertTrue(formpage.selectGender(testData.get("Gender")) && formpage.fillEmail(testData.get("Email")));
+		Assert.assertTrue(formpage.fillCollegeName(testData.get("College Name"))
+				&& formpage.fillDegree(testData.get("Degree Type")) && formpage.fillStream(testData.get("Stream"))
+				&& formpage.fillmessage(testData.get("Message"))
+				&& formpage.fillCollegeLocation(testData.get("Location")));
+		formpage.clickSubmitButton();
 		// Year of Passing - 2020
-		// College Location - New York
-		// Message - From test data file
+		// DOB - 01/01/1998
+		// Mobile Number - 9234567891
 	}
 }

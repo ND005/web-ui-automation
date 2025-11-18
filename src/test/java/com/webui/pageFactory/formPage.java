@@ -1,6 +1,5 @@
 package com.webui.pageFactory;
 
-import java.nio.channels.SelectableChannel;
 import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -45,6 +44,9 @@ public class formPage {
 
 	@FindBy(id = "collegeLocation")
 	public WebElement collegeLocationField;
+
+	@FindBy(id = "degreeType")
+	public WebElement TypeOfDegreeField;
 
 	@FindBy(id = "stream")
 	public WebElement streamField;
@@ -92,5 +94,41 @@ public class formPage {
 	public boolean fillMobileNumber(String mobileNumber) {
 		mobileNumberField.sendKeys(mobileNumber);
 		return true;
+	}
+
+	public boolean fillCollegeName(String collegeName) {
+		collegeNameField.sendKeys(collegeName);
+		return true;
+	}
+
+	public boolean fillDegree(String degree) {
+		Select degreeSelect = new Select(TypeOfDegreeField);
+		degreeSelect.selectByVisibleText(degree);
+		return true;
+	}
+
+	public boolean fillStream(String stream) {
+		Select streamSelect = new Select(streamField);
+		streamSelect.selectByVisibleText(stream);
+		return true;
+	}
+
+	public boolean fillYearOfPassing(String year) {
+		yearOfPassingField.sendKeys(year);
+		return true;
+	}
+
+	public boolean fillCollegeLocation(String location) {
+		collegeLocationField.sendKeys(location);
+		return true;
+	}
+
+	public boolean fillmessage(String message) {
+		messageField.sendKeys(message);
+		return true;
+	}
+
+	public void clickSubmitButton() {
+		SendButton.click();
 	}
 }

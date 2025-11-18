@@ -33,7 +33,7 @@ public class webuiCoreFunctions {
 
 			// Close the workbook to free resources
 			workbook.close();
-			
+
 		} catch (Exception e) {
 			System.err.checkError();
 		}
