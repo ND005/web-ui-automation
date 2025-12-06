@@ -28,7 +28,7 @@ pipeline {
                 echo 'Executing Maven build and verification...'
                 // Assumes 'mvn' is available on the Jenkins agent's PATH.
                 // 'clean verify' compiles, runs tests, and generates reports.
-                sh 'mvn clean verify' 
+                bat 'mvn clean verify' 
                 echo 'Maven build and verification complete. Reports generated in the target folder.'
             }
         }
